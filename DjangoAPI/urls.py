@@ -16,11 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-#Per far funzionare l'applicazione
-from django.conf.urls import url, include
-#Per far funzionare l'applicazione
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^',include('Gtex.urls'))
 ]
