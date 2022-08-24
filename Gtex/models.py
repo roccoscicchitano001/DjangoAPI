@@ -1,3 +1,4 @@
+from lib2to3.pgen2.token import NUMBER
 from tkinter.messagebox import YES
 from django.db import models
 
@@ -10,7 +11,7 @@ from django.db import models
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 class GeneMedianTpm(models.Model):
-    id = models.AutoField(primary_key=True) # Field name made lowercase.
+    id = models.AutoField(primary_key=True)
     name = models.TextField(db_column='Name', blank=True, null=True)  # Field name made lowercase.
     description = models.TextField(db_column='Description', blank=True, null=True)  # Field name made lowercase.
     adipose_subcutaneous = models.FloatField(db_column='Adipose - Subcutaneous', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
@@ -71,3 +72,85 @@ class GeneMedianTpm(models.Model):
     class Meta:
         managed = False
         db_table = 'gene_median_tpm'
+
+class SampleAttributesDs(models.Model):
+    id = models.AutoField(primary_key=True)
+    sampid = models.CharField(db_column='SAMPID', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smatsscr = models.IntegerField(db_column='SMATSSCR', blank=True, null=True)  # Field name made lowercase.
+    smcenter = models.CharField(db_column='SMCENTER', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smpthnts = models.CharField(db_column='SMPTHNTS', max_length=512, blank=True, null=True)  # Field name made lowercase.
+    smrin = models.IntegerField(db_column='SMRIN', blank=True, null=True)  # Field name made lowercase.
+    smts = models.CharField(db_column='SMTS', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smtsd = models.CharField(db_column='SMTSD', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smubrid = models.CharField(db_column='SMUBRID', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smtsisch = models.IntegerField(db_column='SMTSISCH', blank=True, null=True)  # Field name made lowercase.
+    smtspax = models.IntegerField(db_column='SMTSPAX', blank=True, null=True)  # Field name made lowercase.
+    smnabtch = models.CharField(db_column='SMNABTCH', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smnabtcht = models.CharField(db_column='SMNABTCHT', max_length=64, blank=True, null=True)  # Field name made lowercase.
+    smnabtchd = models.CharField(db_column='SMNABTCHD', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smgebtch = models.CharField(db_column='SMGEBTCH', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smgebtchd = models.CharField(db_column='SMGEBTCHD', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smgebtcht = models.CharField(db_column='SMGEBTCHT', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smafrze = models.CharField(db_column='SMAFRZE', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smgtc = models.CharField(db_column='SMGTC', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    sme2mprt = models.IntegerField(db_column='SME2MPRT', blank=True, null=True)  # Field name made lowercase.
+    smchmprs = models.FloatField(db_column='SMCHMPRS', blank=True, null=True)  # Field name made lowercase.
+    smntrart = models.IntegerField(db_column='SMNTRART', blank=True, null=True)  # Field name made lowercase.
+    smnumgps = models.CharField(db_column='SMNUMGPS', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smmaprt = models.IntegerField(db_column='SMMAPRT', blank=True, null=True)  # Field name made lowercase.
+    smexncrt = models.IntegerField(db_column='SMEXNCRT', blank=True, null=True)  # Field name made lowercase.
+    sm550nrm = models.CharField(db_column='SM550NRM', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smgnsdtc = models.IntegerField(db_column='SMGNSDTC', blank=True, null=True)  # Field name made lowercase.
+    smunmprt = models.IntegerField(db_column='SMUNMPRT', blank=True, null=True)  # Field name made lowercase.
+    sm350nrm = models.CharField(db_column='SM350NRM', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smrdlgth = models.IntegerField(db_column='SMRDLGTH', blank=True, null=True)  # Field name made lowercase.
+    smmncpb = models.CharField(db_column='SMMNCPB', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    sme1mmrt = models.IntegerField(db_column='SME1MMRT', blank=True, null=True)  # Field name made lowercase.
+    smsflgth = models.IntegerField(db_column='SMSFLGTH', blank=True, null=True)  # Field name made lowercase.
+    smestlbs = models.IntegerField(db_column='SMESTLBS', blank=True, null=True)  # Field name made lowercase.
+    smmppd = models.CharField(db_column='SMMPPD', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smnterrt = models.IntegerField(db_column='SMNTERRT', blank=True, null=True)  # Field name made lowercase.
+    smrrnanm = models.CharField(db_column='SMRRNANM', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smrdttl = models.CharField(db_column='SMRDTTL', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smvqcfl = models.CharField(db_column='SMVQCFL', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smmncv = models.CharField(db_column='SMMNCV', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smtrscpt = models.IntegerField(db_column='SMTRSCPT', blank=True, null=True)  # Field name made lowercase.
+    smmppdpr = models.CharField(db_column='SMMPPDPR', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smcglgth = models.CharField(db_column='SMCGLGTH', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smgappct = models.CharField(db_column='SMGAPPCT', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smunpdrd = models.IntegerField(db_column='SMUNPDRD', blank=True, null=True)  # Field name made lowercase.
+    smntrnrt = models.IntegerField(db_column='SMNTRNRT', blank=True, null=True)  # Field name made lowercase.
+    smmpunrt = models.IntegerField(db_column='SMMPUNRT', blank=True, null=True)  # Field name made lowercase.
+    smexpeff = models.IntegerField(db_column='SMEXPEFF', blank=True, null=True)  # Field name made lowercase.
+    smmppdun = models.CharField(db_column='SMMPPDUN', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    sme2mmrt = models.IntegerField(db_column='SME2MMRT', blank=True, null=True)  # Field name made lowercase.
+    sme2anti = models.CharField(db_column='SME2ANTI', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smaltalg = models.CharField(db_column='SMALTALG', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    sme2snse = models.CharField(db_column='SME2SNSE', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smmflgth = models.IntegerField(db_column='SMMFLGTH', blank=True, null=True)  # Field name made lowercase.
+    sme1anti = models.CharField(db_column='SME1ANTI', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smspltrd = models.CharField(db_column='SMSPLTRD', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smbsmmrt = models.IntegerField(db_column='SMBSMMRT', blank=True, null=True)  # Field name made lowercase.
+    sme1snse = models.CharField(db_column='SME1SNSE', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    sme1pcts = models.IntegerField(db_column='SME1PCTS', blank=True, null=True)  # Field name made lowercase.
+    smrrnart = models.IntegerField(db_column='SMRRNART', blank=True, null=True)  # Field name made lowercase.
+    sme1mprt = models.IntegerField(db_column='SME1MPRT', blank=True, null=True)  # Field name made lowercase.
+    smnum5cd = models.CharField(db_column='SMNUM5CD', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    smdpmprt = models.IntegerField(db_column='SMDPMPRT', blank=True, null=True)  # Field name made lowercase.
+    sme2pcts = models.IntegerField(db_column='SME2PCTS', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'sample_attributes_ds'
+
+class SubjectPhenotypesDd(models.Model):
+    id = models.AutoField(primary_key=True)
+    subjid = models.CharField(db_column='SUBJID', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    sex = models.IntegerField(db_column='SEX', blank=True, null=True)  # Field name made lowercase.
+    age = models.CharField(db_column='AGE', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    dthhrdy = models.IntegerField(db_column='DTHHRDY', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'subject_phenotypes_dd'
+
