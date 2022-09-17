@@ -3,8 +3,8 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
 
-from Gtex.models import GeneMedianTpm,SampleAttributesDs,SubjectPhenotypesDd
-from Gtex.serializers import GeneMedianTpmSerializer,SampleAttributesDsSerializer,SubjectPhenotypesDdSerializer
+from Gtex.models import GeneMedianTpm,SampleAttributesDs,SubjectPhenotypesDd,DiacoTissueAdiposeVisceralOm
+from Gtex.serializers import GeneMedianTpmSerializer,SampleAttributesDsSerializer,SubjectPhenotypesDdSerializer,DiacoTissueAdiposeVisceralOmSerializer
 
 @csrf_exempt
 def geneMedianTpmApi(request,id=0):
@@ -82,6 +82,32 @@ def sampleAttributesDsApi(request,id=0):
     elif request.method=='DELETE':
         sampleAttributesDs=SampleAttributesDs.objects.get(sampleAttributesDsId=id)
         sampleAttributesDs.delete()
+        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+
+@csrf_exempt
+def diacoTissueAdiposeVisceralOmApi(request,id=0):
+    if request.method=='GET':
+        diacoTissueAdiposeVisceralOms=DiacoTissueAdiposeVisceralOm.objects.all()
+        diacoTissueAdiposeVisceralOm_serializer=DiacoTissueAdiposeVisceralOmSerializer(diacoTissueAdiposeVisceralOms,many=True)
+        return JsonResponse(diacoTissueAdiposeVisceralOm_serializer.data,safe=False)
+    elif request.method=='POST':
+        diacoTissueAdiposeVisceralOms_data=JSONParser().parse(request)
+        diacoTissueAdiposeVisceralOm_serializer=DiacoTissueAdiposeVisceralOmSerializer(data=diacoTissueAdiposeVisceralOms_data)
+        if (diacoTissueAdiposeVisceralOm_serializer.is_valid()):
+            diacoTissueAdiposeVisceralOm_serializer.save()
+            return JsonResponse ("Aggiunto con successo!", safe=False)
+        return JsonResponse ("Errore nell'inserimento",safe=False)
+    elif request.method=='PUT':
+        diacoTissueAdiposeVisceralOms_data=JSONParser().parse(request)
+        diacoTissueAdiposeVisceralOm=DiacoTissueAdiposeVisceralOm.objects.get(diacoTissueAdiposeVisceralOmId=diacoTissueAdiposeVisceralOms_data['id'])
+        diacoTissueAdiposeVisceralOm_serializer=DiacoTissueAdiposeVisceralOmSerializer(diacoTissueAdiposeVisceralOm,data=diacoTissueAdiposeVisceralOms_data)
+        if (diacoTissueAdiposeVisceralOm_serializer.is_valid()):
+            diacoTissueAdiposeVisceralOm_serializer.save()
+            return JsonResponse ("Aggiornato con successo!", safe=False)
+        return JsonResponse ("Errore nell'argionamento",safe=False)
+    elif request.method=='DELETE':
+        diacoTissueAdiposeVisceralOm=DiacoTissueAdiposeVisceralOm.objects.get(diacoTissueAdiposeVisceralOmId=id)
+        diacoTissueAdiposeVisceralOm.delete()
         return JsonResponse ("Elimiato con suvvesso!",safe=False)
 
 
