@@ -6462,10 +6462,10 @@ class GeneMedianTpm(models.Model):
 
 
 class ListaGeni(models.Model):
-    gene = models.CharField(max_length=50, primary_key=True)
-    valore_p = models.FloatField(blank=True, null=True)
-    agg_valore_p = models.FloatField(blank=True, null=True)
-    logfc = models.CharField(max_length=50, blank=True, null=True)
+    id = models.BigIntegerField(primary_key=True)
+    codice = models.TextField(blank=True, null=True)
+    gene = models.CharField(max_length=50, blank=True, null=True)
+    riferimento_gtex_tissue = models.BigIntegerField(blank=True, null=True)
 
     class Meta:
         managed = False

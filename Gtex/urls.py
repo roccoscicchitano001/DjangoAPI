@@ -10,4 +10,6 @@ urlpatterns=[
     url(r'^sampleAttributesDs/([0-9]+)$', views.sampleAttributesDsApi),
     url(r'^diacoTissueAdiposeVisceralOm$', views.diacoTissueAdiposeVisceralOmApi),
     url(r'^diacoTissueAdiposeVisceralOm/([0-9]+)$', views.diacoTissueAdiposeVisceralOmApi),
+    url(r'^listaGeni$', views.listaGeniApi),
+    url(r'^listaGeni/([0-9]+)$', views.listaGeniApi)
 ]

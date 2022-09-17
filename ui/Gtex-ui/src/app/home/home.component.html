@@ -1,1 +1,63 @@
-<p>home works!</p>
+<p class="fw-light">Recently, many independent research project focus on the study of the molecular basis of aging processes. I parallel, the different progression of many diseaes  between sex is a hot topic research area. These studies require many data, models and tools for inferring aging and sex specific molecular machinaries. Among the others, the  Genotype-Tissue Expression (GTEx) database is one of the preminent resources for the analysis of expression data related to tissues, sex and age. The current version of the database has a lot of querying interface that enable many analysis centered on the expression of genes on tissues. Despite this the database lacks on the analysis at sex/age level, thus the researcher has to download data and then write queries by hand. Nevertheless it lacks on the integration with existing protein interaction data. Therefore, the need for the introduction of tools enabling easy access and powerful analysis capabilities (i.e. state of the art network based analysis and integration), arises. We here present NOMA-DB a framework for the analysis of age related genes based on the GTEx database that enable easy querying at sex/age level, network based analysis. The framework is based on wrapping the GTEx database and on building an application logic level on top of existing data. The current version enables the analysis of genes by tissue, gene and age, thus it may be used in potentially future directions of analysis towards better comprehension of aging/sex-related molecular machineries based on the analysis of expression data.</p>
+<br>
+<p class="fw-light">Genes list present: </p>
+<table id="listaGeni" class="table table-bordered" style="width:100%">
+<thead>
+        <tr>
+            <th>
+                <div class="d-flex flex-row">
+                    <input class="form-control m-2"
+                    [(ngModel)]="geneCodeFilter"
+                    (keyup)="FilterFn()"
+                    placeholder="Filter by code: ">
+                </div>
+                Code
+            </th>
+            <th>
+                <div class="d-flex flex-row">
+
+        
+                    <input class="form-control m-2"
+                    [(ngModel)]="geneNameFilter"
+                    (keyup)="FilterFn()"
+                    placeholder="Filter by name: ">
+        
+                    <button type="button" class="btn btn-light"
+                    (click)="sortResult('gene',true)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-square-fill" viewBox="0 0 16 16">
+                        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5a.5.5 0 0 1 1 0z"/>
+                      </svg>
+                    </button>
+        
+                    <button type="button" class="btn btn-light"
+                    (click)="sortResult('gene',false)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
+                        <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"/>
+                    </svg>
+                    </button>
+                </div>
+                Name
+            </th>
+        </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let gen of geni |paginate
+    : {
+        itemsPerPage: 8,
+        currentPage: page
+      };">
+        <td>
+            {{gen.codice}}
+        </td>
+        <td>
+            {{gen.gene}}
+        </td>
+    </tr>
+</tbody>
+<pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="(page=$event)"
+    >
+</pagination-controls>
+</table>

@@ -3,8 +3,8 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
 
-from Gtex.models import GeneMedianTpm,SampleAttributesDs,SubjectPhenotypesDd,DiacoTissueAdiposeVisceralOm
-from Gtex.serializers import GeneMedianTpmSerializer,SampleAttributesDsSerializer,SubjectPhenotypesDdSerializer,DiacoTissueAdiposeVisceralOmSerializer
+from Gtex.models import GeneMedianTpm,SampleAttributesDs,SubjectPhenotypesDd,DiacoTissueAdiposeVisceralOm, ListaGeni
+from Gtex.serializers import GeneMedianTpmSerializer,SampleAttributesDsSerializer,SubjectPhenotypesDdSerializer,DiacoTissueAdiposeVisceralOmSerializer, ListaGeniSerializer
 
 @csrf_exempt
 def geneMedianTpmApi(request,id=0):
@@ -110,5 +110,29 @@ def diacoTissueAdiposeVisceralOmApi(request,id=0):
         diacoTissueAdiposeVisceralOm.delete()
         return JsonResponse ("Elimiato con suvvesso!",safe=False)
 
-
+@csrf_exempt
+def listaGeniApi(request,id=0):
+    if request.method=='GET':
+        listaGenis=ListaGeni.objects.all()
+        listaGeni_serializer=ListaGeniSerializer(listaGenis,many=True)
+        return JsonResponse(listaGeni_serializer.data,safe=False)
+    elif request.method=='POST':
+        listaGeni_data=JSONParser().parse(request)
+        listaGeni_serializer=ListaGeniSerializer(data=listaGeni_data)
+        if (listaGeni_serializer.is_valid()):
+            listaGeni_serializer.save()
+            return JsonResponse ("Aggiunto con successo!", safe=False)
+        return JsonResponse ("Errore nell'inserimento",safe=False)
+    elif request.method=='PUT':
+        listaGeni_data=JSONParser().parse(request)
+        listaGeni=ListaGeni.objects.get(listaGeniId=listaGeni_data['id'])
+        listaGeni_serializer=ListaGeniSerializer(listaGeni,data=listaGeni_data)
+        if (listaGeni_serializer.is_valid()):
+            listaGeni_serializer.save()
+            return JsonResponse ("Aggiornato con successo!", safe=False)
+        return JsonResponse ("Errore nell'argionamento",safe=False)
+    elif request.method=='DELETE':
+        listaGeni=ListaGeni.objects.get(listaGeniId=id)
+        listaGeni.delete()
+        return JsonResponse ("Elimiato con suvvesso!",safe=False)
 
