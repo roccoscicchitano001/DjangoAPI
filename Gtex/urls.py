@@ -11,5 +11,7 @@ urlpatterns=[
     url(r'^diacoTissueAdiposeVisceralOm$', views.diacoTissueAdiposeVisceralOmApi),
     url(r'^diacoTissueAdiposeVisceralOm/([0-9]+)$', views.diacoTissueAdiposeVisceralOmApi),
     url(r'^listaGeni$', views.listaGeniApi),
-    url(r'^listaGeni/([0-9]+)$', views.listaGeniApi)
+    url(r'^listaGeni/([0-9]+)$', views.listaGeniApi),
+    url(r'^listaTabelle$', views.listaTabelleApi),
+    url(r'^listaTabelle/([0-9]+)$', views.listaTabelleApi)
 ]

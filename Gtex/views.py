@@ -3,8 +3,8 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
 
-from Gtex.models import GeneMedianTpm,SampleAttributesDs,SubjectPhenotypesDd,DiacoTissueAdiposeVisceralOm, ListaGeni
-from Gtex.serializers import GeneMedianTpmSerializer,SampleAttributesDsSerializer,SubjectPhenotypesDdSerializer,DiacoTissueAdiposeVisceralOmSerializer, ListaGeniSerializer
+from Gtex.models import GeneMedianTpm,SampleAttributesDs,SubjectPhenotypesDd,DiacoTissueAdiposeVisceralOm, ListaGeni, ListaTabelle
+from Gtex.serializers import GeneMedianTpmSerializer,SampleAttributesDsSerializer,SubjectPhenotypesDdSerializer,DiacoTissueAdiposeVisceralOmSerializer, ListaGeniSerializer, ListaTabelleSerializer
 
 @csrf_exempt
 def geneMedianTpmApi(request,id=0):
@@ -134,5 +134,31 @@ def listaGeniApi(request,id=0):
     elif request.method=='DELETE':
         listaGeni=ListaGeni.objects.get(listaGeniId=id)
         listaGeni.delete()
+        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+
+@csrf_exempt
+def listaTabelleApi(request,id=0):
+    if request.method=='GET':
+        listaTabelles=ListaTabelle.objects.all()
+        listaTabelle_serializer=ListaTabelleSerializer(listaTabelles,many=True)
+        return JsonResponse(listaTabelle_serializer.data,safe=False)
+    elif request.method=='POST':
+        listaTabelle_data=JSONParser().parse(request)
+        listaTabelle_serializer=ListaTabelleSerializer(data=listaTabelle_data)
+        if (listaTabelle_serializer.is_valid()):
+            listaTabelle_serializer.save()
+            return JsonResponse ("Aggiunto con successo!", safe=False)
+        return JsonResponse ("Errore nell'inserimento",safe=False)
+    elif request.method=='PUT':
+        listaTabelle_data=JSONParser().parse(request)
+        listaTabelle=ListaTabelle.objects.get(listaTabelleId=listaTabelle_data['tabella'])
+        listaTabelle_serializer=ListaTabelleSerializer(listaTabelle,data=listaTabelle_data)
+        if (listaTabelle_serializer.is_valid()):
+            listaTabelle_serializer.save()
+            return JsonResponse ("Aggiornato con successo!", safe=False)
+        return JsonResponse ("Errore nell'argionamento",safe=False)
+    elif request.method=='DELETE':
+        listaTabelle=ListaTabelle.objects.get(listaTabelleId=id)
+        listaTabelle.delete()
         return JsonResponse ("Elimiato con suvvesso!",safe=False)
 

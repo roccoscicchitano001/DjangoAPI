@@ -1,5 +1,6 @@
+from dataclasses import fields
 from rest_framework import serializers
-from Gtex.models import DiacoTissueAdiposeVisceralOm, GeneMedianTpm, SampleAttributesDs, SubjectPhenotypesDd, ListaGeni
+from Gtex.models import DiacoTissueAdiposeVisceralOm, GeneMedianTpm, ListaTabelle, SampleAttributesDs, SubjectPhenotypesDd, ListaGeni, ListaTabelle
 
 class GeneMedianTpmSerializer(serializers.ModelSerializer):
     class Meta:
@@ -25,3 +26,8 @@ class ListaGeniSerializer(serializers.ModelSerializer):
     class Meta:
         model=ListaGeni
         fields=('id','codice','gene','riferimento_gtex_tissue')
+
+class ListaTabelleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=ListaTabelle
+        fields=('tessuto','tabella')

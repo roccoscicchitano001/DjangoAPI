@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GeneMedianTpmComponent } from './gene-median-tpm.component';
+import { QueryBuilderComponent } from './query-builder.component';
 
-describe('GeneMedianTpmComponent', () => {
-  let component: GeneMedianTpmComponent;
-  let fixture: ComponentFixture<GeneMedianTpmComponent>;
+describe('QueryBuilderComponent', () => {
+  let component: QueryBuilderComponent;
+  let fixture: ComponentFixture<QueryBuilderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GeneMedianTpmComponent ]
+      declarations: [ QueryBuilderComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(GeneMedianTpmComponent);
+    fixture = TestBed.createComponent(QueryBuilderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
