@@ -12,7 +12,9 @@ export class QueryBuilderComponent implements OnInit {
 
   p:number = 1;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) {
+    this.tabellaScelta;
+  }
 
    //Select
   ERRFI1:boolean = false;  
@@ -497,6 +499,14 @@ export class QueryBuilderComponent implements OnInit {
     .subscribe(data=>{
       this.listaTabelle=data;
     })
+  }
+  
+  setTabella(elemento:any){
+    this.tabellaScelta=elemento;
+  }
+
+  clear(){
+    window.location.reload();
   }
 
 }
