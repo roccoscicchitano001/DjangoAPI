@@ -76,3 +76,12 @@
 .list-group input[type="radio"]:checked + .list-group-item:before {
   color: inherit;
 }
+
+.list-group-item{
+  border-radius: 20px 20px 20px 20px;
+  width: 98%;
+}
+
+.overflow-auto{
+  height: 200px;
+}

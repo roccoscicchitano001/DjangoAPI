@@ -488,6 +488,7 @@ export class QueryBuilderComponent implements OnInit {
   //from
   listaTabelle:any=[];
   tabellaScelta:any="";
+  risultato:any=[];
 
   page = 1;
 
@@ -507,6 +508,16 @@ export class QueryBuilderComponent implements OnInit {
 
   clear(){
     window.location.reload();
+  }
+
+  showTable(){
+    if(this.tabellaScelta!=null&&this.tabellaScelta!=""){
+      this.http.get<any>(environment.API_URL+this.tabellaScelta).subscribe(data=>{this.risultato=data;})
+    }
+    else{
+      alert("Select at least one tissue!");
+    }
+    
   }
 
 }
