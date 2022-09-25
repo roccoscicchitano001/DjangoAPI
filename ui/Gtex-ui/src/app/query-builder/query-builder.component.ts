@@ -488,11 +488,14 @@ export class QueryBuilderComponent implements OnInit {
   //from
   listaTabelle:any=[];
   tabellaScelta:any="";
+  tessutoVisualizzato="";
   risultato:any=[];
+  disabled:boolean = false;
 
   page = 1;
 
   ngOnInit(): void {
+    this.refreshList();
   }
 
   refreshList(){
@@ -502,7 +505,8 @@ export class QueryBuilderComponent implements OnInit {
     })
   }
   
-  setTabella(elemento:any){
+  setTabella(elemento:any,tessuto:any){
+    this.tessutoVisualizzato=tessuto;
     this.tabellaScelta=elemento;
   }
 
@@ -512,6 +516,7 @@ export class QueryBuilderComponent implements OnInit {
 
   showTable(){
     if(this.tabellaScelta!=null&&this.tabellaScelta!=""){
+      this.disabled=true;
       this.http.get<any>(environment.API_URL+this.tabellaScelta).subscribe(data=>{this.risultato=data;})
     }
     else{

@@ -1,6 +1,6 @@
 from dataclasses import fields
 from rest_framework import serializers
-from Gtex.models import DiacoTissueAdiposeSubcutaneous, DiacoTissueAdiposeVisceralOm, DiacoTissueAdrenalGland, DiacoTissueArteryAorta, DiacoTissueBladder, DiacoTissueBrainAmygdala, DiacoTissueBrainAnteriorCcBa24, DiacoTissueBrainCaudateBg, DiacoTissueBrainCerebellarHs, DiacoTissueLiver, GeneMedianTpm, ListaTabelle, SampleAttributesDs, SubjectPhenotypesDd, ListaGeni, ListaTabelle
+from Gtex.models import DiacoTissueAdiposeSubcutaneous, DiacoTissueAdiposeVisceralOm, DiacoTissueAdrenalGland, DiacoTissueArteryAorta, DiacoTissueArteryCoronary, DiacoTissueBladder, DiacoTissueBrainAmygdala, DiacoTissueBrainAnteriorCcBa24, DiacoTissueBrainCaudateBg, DiacoTissueBrainCerebellarHs, DiacoTissueLiver, GeneMedianTpm, ListaTabelle, SampleAttributesDs, SubjectPhenotypesDd, ListaGeni, ListaTabelle
 
 # Tabelle generiche
 class GeneMedianTpmSerializer(serializers.ModelSerializer):

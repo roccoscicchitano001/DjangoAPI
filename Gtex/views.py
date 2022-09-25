@@ -139,6 +139,32 @@ def diacoTissueAdiposeVisceralOmApi(request,id=0):
         return JsonResponse ("Elimiato con suvvesso!",safe=False)
 
 @csrf_exempt
+def diacoTissueAdrenalGlandApi(request,id=0):
+    if request.method=='GET':
+        diacoTissueAdrenalGlands=DiacoTissueAdrenalGland.objects.all()
+        diacoTissueAdrenalGland_serializer=DiacoTissueAdrenalGlandSerializer(diacoTissueAdrenalGlands,many=True)
+        return JsonResponse(diacoTissueAdrenalGland_serializer.data,safe=False)
+    elif request.method=='POST':
+        diacoTissueAdrenalGland_data=JSONParser().parse(request)
+        diacoTissueAdrenalGland_serializer=DiacoTissueAdrenalGlandSerializer(data=diacoTissueAdrenalGland_data)
+        if (diacoTissueAdrenalGland_serializer.is_valid()):
+            diacoTissueAdrenalGland_serializer.save()
+            return JsonResponse ("Aggiunto con successo!", safe=False)
+        return JsonResponse ("Errore nell'inserimento",safe=False)
+    elif request.method=='PUT':
+        diacoTissueAdrenalGland_data=JSONParser().parse(request)
+        diacoTissueAdrenalGland=DiacoTissueAdrenalGland.objects.get(diacoTissueAdrenalGlandId=diacoTissueAdrenalGland_data['subjid'])
+        diacoTissueAdrenalGland_serializer=DiacoTissueAdiposeVisceralOmSerializer(diacoTissueAdrenalGland,data=diacoTissueAdrenalGland_data)
+        if (diacoTissueAdrenalGland_serializer.is_valid()):
+            diacoTissueAdrenalGland_serializer.save()
+            return JsonResponse ("Aggiornato con successo!", safe=False)
+        return JsonResponse ("Errore nell'argionamento",safe=False)
+    elif request.method=='DELETE':
+        diacoTissueAdrenalGland=DiacoTissueAdiposeVisceralOm.objects.get(diacoTissueAdrenalGlandId=id)
+        diacoTissueAdrenalGland.delete()
+        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+
+@csrf_exempt
 def diacoTissueArteryAortaApi(request,id=0):
     if request.method=='GET':
         diacoTissueArteryAortas=DiacoTissueArteryAorta.objects.all()

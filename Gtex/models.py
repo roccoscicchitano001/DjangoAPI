@@ -6566,6 +6566,7 @@ class SubjectPhenotypesDd(models.Model):
         managed = False
         db_table = 'subject_phenotypes_dd'
 
+
 class ListaTabelle(models.Model):
     tessuto = models.CharField(db_column='Tessuto', max_length=36)  # Field name made lowercase.
     tabella = models.CharField(db_column='Tabella', max_length=35, primary_key=True)  # Field name made lowercase.
