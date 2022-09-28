@@ -3,8 +3,8 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
 
-from Gtex.models import GeneMedianTpm,SampleAttributesDs,SubjectPhenotypesDd, DiacoTissueAdiposeSubcutaneous, DiacoTissueAdiposeVisceralOm, DiacoTissueAdrenalGland, DiacoTissueArteryCoronary, DiacoTissueBladder, DiacoTissueBrainAmygdala, DiacoTissueBrainAnteriorCcBa24, DiacoTissueBrainCaudateBg, DiacoTissueBrainCerebellarHs, DiacoTissueLiver, ListaGeni, ListaTabelle
-from Gtex.serializers import GeneMedianTpmSerializer,SampleAttributesDsSerializer,SubjectPhenotypesDdSerializer, DiacoTissueAdiposeSubcutaneousSerializer, DiacoTissueAdiposeVisceralOmSerializer, DiacoTissueAdrenalGlandSerializer, DiacoTissueArteryCoronarySerializer, DiacoTissueBladderSerializer, DiacoTissueBrainAmygdalaSerializer, DiacoTissueBrainAnteriorCcBa24Serializer, DiacoTissueBrainCaudateBgSerializer, DiacoTissueBrainCerebellarHsSerializer, DiacoTissueLiverSerializer, ListaGeniSerializer, ListaTabelleSerializer
+from Gtex.models import GeneMedianTpm,SampleAttributesDs,SubjectPhenotypesDd, DiacoTissueAdiposeSubcutaneous, DiacoTissueAdiposeVisceralOm, DiacoTissueAdrenalGland, DiacoTissueArteryAorta, DiacoTissueArteryCoronary, DiacoTissueBladder, DiacoTissueBrainAmygdala, DiacoTissueBrainAnteriorCcBa24, DiacoTissueBrainCaudateBg, DiacoTissueBrainCerebellarHs, DiacoTissueBrainCerebellum, DiacoTissueBrainCortex, DiacoTissueBrainFrontalCortexBa9, DiacoTissueLiver, ListaGeni, ListaTabelle
+from Gtex.serializers import GeneMedianTpmSerializer,SampleAttributesDsSerializer,SubjectPhenotypesDdSerializer, DiacoTissueAdiposeSubcutaneousSerializer, DiacoTissueAdiposeVisceralOmSerializer, DiacoTissueAdrenalGlandSerializer, DiacoTissueArteryAortaSerializer, DiacoTissueArteryCoronarySerializer, DiacoTissueBladderSerializer, DiacoTissueBrainAmygdalaSerializer, DiacoTissueBrainAnteriorCcBa24Serializer, DiacoTissueBrainCaudateBgSerializer, DiacoTissueBrainCerebellarHsSerializer, DiacoTissueBrainCerebellumSerializer, DiacoTissueBrainCortexSerializer, DiacoTissueBrainFrontalCortexBa9Serializer, DiacoTissueLiverSerializer, ListaGeniSerializer, ListaTabelleSerializer
 
 # Tabelle generiche 
 @csrf_exempt
@@ -344,6 +344,84 @@ def diacoTissueBrainCerebellarHsApi(request,id=0):
     elif request.method=='DELETE':
         diacoTissueBrainCerebellarHs=DiacoTissueBrainCerebellarHs.objects.get(diacoTissueBrainCerebellarHsId=id)
         diacoTissueBrainCerebellarHs.delete()
+        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+
+@csrf_exempt
+def diacoTissueBrainCerebellumApi(request,id=0):
+    if request.method=='GET':
+        diacoTissueBrainCerebellums=DiacoTissueBrainCerebellum.objects.all()
+        diacoTissueBrainCerebellum_serializer=DiacoTissueBrainCerebellumSerializer(diacoTissueBrainCerebellums,many=True)
+        return JsonResponse(diacoTissueBrainCerebellum_serializer.data,safe=False)
+    elif request.method=='POST':
+        diacoTissueBrainCerebellum_data=JSONParser().parse(request)
+        diacoTissueBrainCerebellum_serializer=DiacoTissueBrainCerebellumSerializer(data=diacoTissueBrainCerebellum_data)
+        if (diacoTissueBrainCerebellum_serializer.is_valid()):
+            diacoTissueBrainCerebellum_serializer.save()
+            return JsonResponse ("Aggiunto con successo!", safe=False)
+        return JsonResponse ("Errore nell'inserimento",safe=False)
+    elif request.method=='PUT':
+        diacoTissueBrainCerebellum_data=JSONParser().parse(request)
+        diacoTissueBrainCerebellum=DiacoTissueBrainCerebellum.objects.get(diacoTissueBrainCerebellumId=diacoTissueBrainCerebellum_data['subjid'])
+        diacoTissueBrainCerebellum_serializer=DiacoTissueBrainCerebellumSerializer(diacoTissueBrainCerebellum,data=diacoTissueBrainCerebellum_data)
+        if (diacoTissueBrainCerebellum_serializer.is_valid()):
+            diacoTissueBrainCerebellum_serializer.save()
+            return JsonResponse ("Aggiornato con successo!", safe=False)
+        return JsonResponse ("Errore nell'argionamento",safe=False)
+    elif request.method=='DELETE':
+        diacoTissueBrainCerebellum=DiacoTissueBrainCerebellum.objects.get(diacoTissueBrainCerebellumId=id)
+        diacoTissueBrainCerebellum.delete()
+        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+
+@csrf_exempt
+def diacoTissueBrainCortexApi(request,id=0):
+    if request.method=='GET':
+        diacoTissueBrainCortexs=DiacoTissueBrainCortex.objects.all()
+        diacoTissueBrainCortex_serializer=DiacoTissueBrainCortexSerializer(diacoTissueBrainCortexs,many=True)
+        return JsonResponse(diacoTissueBrainCortex_serializer.data,safe=False)
+    elif request.method=='POST':
+        diacoTissueBrainCortex_data=JSONParser().parse(request)
+        diacoTissueBrainCortex_serializer=DiacoTissueBrainCortexSerializer(data=diacoTissueBrainCortex_data)
+        if (diacoTissueBrainCortex_serializer.is_valid()):
+            diacoTissueBrainCortex_serializer.save()
+            return JsonResponse ("Aggiunto con successo!", safe=False)
+        return JsonResponse ("Errore nell'inserimento",safe=False)
+    elif request.method=='PUT':
+        diacoTissueBrainCortex_data=JSONParser().parse(request)
+        diacoTissueBrainCortex=DiacoTissueBrainCortex.objects.get(diacoTissueBrainCortexId=diacoTissueBrainCortex_data['subjid'])
+        diacoTissueBrainCortex_serializer=DiacoTissueBrainCortexSerializer(diacoTissueBrainCortex,data=diacoTissueBrainCortex_data)
+        if (diacoTissueBrainCortex_serializer.is_valid()):
+            diacoTissueBrainCortex_serializer.save()
+            return JsonResponse ("Aggiornato con successo!", safe=False)
+        return JsonResponse ("Errore nell'argionamento",safe=False)
+    elif request.method=='DELETE':
+        diacoTissueBrainCortex=DiacoTissueBrainCortex.objects.get(DiacoTissueBrainCortexId=id)
+        diacoTissueBrainCortex.delete()
+        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+
+@csrf_exempt
+def diacoTissueBrainFrontalCortexBa9Api(request,id=0):
+    if request.method=='GET':
+        diacoTissueBrainFrontalCortexBa9s=DiacoTissueBrainFrontalCortexBa9.objects.all()
+        diacoTissueBrainFrontalCortexBa9_serializer=DiacoTissueBrainFrontalCortexBa9Serializer(diacoTissueBrainFrontalCortexBa9s,many=True)
+        return JsonResponse(diacoTissueBrainFrontalCortexBa9_serializer.data,safe=False)
+    elif request.method=='POST':
+        diacoTissueBrainFrontalCortexBa9_data=JSONParser().parse(request)
+        diacoTissueBrainFrontalCortexBa9_serializer=DiacoTissueBrainFrontalCortexBa9Serializer(data=diacoTissueBrainFrontalCortexBa9_data)
+        if (diacoTissueBrainFrontalCortexBa9_serializer.is_valid()):
+            diacoTissueBrainFrontalCortexBa9_serializer.save()
+            return JsonResponse ("Aggiunto con successo!", safe=False)
+        return JsonResponse ("Errore nell'inserimento",safe=False)
+    elif request.method=='PUT':
+        diacoTissueBrainFrontalCortexBa9_data=JSONParser().parse(request)
+        diacoTissueBrainFrontalCortexBa9=DiacoTissueBrainFrontalCortexBa9.objects.get(diacoTissueBrainFrontalCortexBa9Id=diacoTissueBrainFrontalCortexBa9_data['subjid'])
+        diacoTissueBrainFrontalCortexBa9_serializer=DiacoTissueBrainFrontalCortexBa9Serializer(diacoTissueBrainFrontalCortexBa9,data=diacoTissueBrainFrontalCortexBa9_data)
+        if (diacoTissueBrainFrontalCortexBa9_serializer.is_valid()):
+            diacoTissueBrainFrontalCortexBa9_serializer.save()
+            return JsonResponse ("Aggiornato con successo!", safe=False)
+        return JsonResponse ("Errore nell'argionamento",safe=False)
+    elif request.method=='DELETE':
+        diacoTissueBrainFrontalCortexBa9=DiacoTissueBrainFrontalCortexBa9.objects.get(diacoTissueBrainFrontalCortexBa9Id=id)
+        diacoTissueBrainFrontalCortexBa9.delete()
         return JsonResponse ("Elimiato con suvvesso!",safe=False)
 
 @csrf_exempt
