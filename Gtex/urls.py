@@ -48,6 +48,8 @@ urlpatterns=[
     url(r'^diacoTissueBrainNucleusAccumbensBg/([0-9]+)$', views.diacoTissueBrainNucleusAccumbensBgApi),
     url(r'^diacoTissueLiver$', views.diacoTissueLiverApi),
     url(r'^diacoTissueLiver/([0-9]+)$', views.diacoTissueLiverApi),
+    url(r'^diacoTissueStomach$', views.diacoTissueStomachApi),
+    url(r'^diacoTissueStomach/([0-9]+)$', views.diacoTissueStomachApi),
     url(r'^listaGeni$', views.listaGeniApi),
     url(r'^listaGeni/([0-9]+)$', views.listaGeniApi),
     url(r'^listaTabelle$', views.listaTabelleApi),
