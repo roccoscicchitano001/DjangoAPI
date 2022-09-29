@@ -10692,7 +10692,6 @@ class DiacoTissueStomach(models.Model):
     sampid = models.CharField(db_column='SAMPID', max_length=50, blank=True, null=True)  # Field name made lowercase.
     sesso = models.CharField(db_column='Sesso', max_length=1)  # Field name made lowercase.
     eta = models.CharField(db_column='Età', max_length=50, blank=True, null=True)  # Field name made lowercase.
-    classificazione_morte = models.CharField(db_column='Classificazione morte', max_length=230)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     errfi1 = models.FloatField(db_column='ERRFI1', blank=True, null=True)  # Field name made lowercase.
     mad2l2 = models.FloatField(db_column='MAD2L2', blank=True, null=True)  # Field name made lowercase.
     mthfr = models.FloatField(db_column='MTHFR', blank=True, null=True)  # Field name made lowercase.
