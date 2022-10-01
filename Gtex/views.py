@@ -3,8 +3,8 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
 
-from Gtex.models import GeneMedianTpm,SampleAttributesDs,SubjectPhenotypesDd, DiacoTissueAdiposeSubcutaneous, DiacoTissueAdiposeVisceralOm, DiacoTissueAdrenalGland, DiacoTissueArteryAorta, DiacoTissueArteryCoronary, DiacoTissueBladder, DiacoTissueBrainAmygdala, DiacoTissueBrainAnteriorCcBa24, DiacoTissueBrainCaudateBg, DiacoTissueBrainCerebellarHs, DiacoTissueBrainCerebellum, DiacoTissueBrainCortex, DiacoTissueBrainFrontalCortexBa9, DiacoTissueBrainHippocampus, DiacoTissueBrainHypothalamus, DiacoTissueBrainNucleusAccumbensBg, DiacoTissueBrainSpinalCordCervicalC1, DiacoTissueBrainPutamenBasalGanglia, DiacoTissueBrainSubstantiaNigra, DiacoTissueLiver, DiacoTissueStomach, ListaGeni, ListaTabelle
-from Gtex.serializers import GeneMedianTpmSerializer,SampleAttributesDsSerializer,SubjectPhenotypesDdSerializer, DiacoTissueAdiposeSubcutaneousSerializer, DiacoTissueAdiposeVisceralOmSerializer, DiacoTissueAdrenalGlandSerializer, DiacoTissueArteryAortaSerializer, DiacoTissueArteryCoronarySerializer, DiacoTissueBladderSerializer, DiacoTissueBrainAmygdalaSerializer, DiacoTissueBrainAnteriorCcBa24Serializer, DiacoTissueBrainCaudateBgSerializer, DiacoTissueBrainCerebellarHsSerializer, DiacoTissueBrainCerebellumSerializer, DiacoTissueBrainCortexSerializer, DiacoTissueBrainFrontalCortexBa9Serializer, DiacoTissueBrainHippocampusSerializer, DiacoTissueBrainHypothalamusSerializer, DiacoTissueBrainSpinalCordCervicalC1Serializer, DiacoTissueBrainSubstantiaNigraSerializer , DiacoTissueBrainNucleusAccumbensBgSerializer, DiacoTissueBrainPutamenBasalGangliaSerializer, DiacoTissueLiverSerializer, DiacoTissueStomachSerializer,ListaGeniSerializer, ListaTabelleSerializer
+from Gtex.models import GeneMedianTpm,SampleAttributesDs,SubjectPhenotypesDd, DiacoTissueAdiposeSubcutaneous, DiacoTissueAdiposeVisceralOm, DiacoTissueAdrenalGland, DiacoTissueArteryAorta, DiacoTissueArteryCoronary, DiacoTissueArteryTibial,DiacoTissueBladder, DiacoTissueBrainAmygdala, DiacoTissueBrainAnteriorCcBa24, DiacoTissueBrainCaudateBg, DiacoTissueBrainCerebellarHs, DiacoTissueBrainCerebellum, DiacoTissueBrainCortex, DiacoTissueBrainFrontalCortexBa9, DiacoTissueBrainHippocampus, DiacoTissueBrainHypothalamus, DiacoTissueBrainNucleusAccumbensBg, DiacoTissueBrainSpinalCordCervicalC1, DiacoTissueBrainPutamenBasalGanglia, DiacoTissueBrainSubstantiaNigra, DiacoTissueBreastMammary, DiacoTissueCellsCulturedFibroblasts, DiacoTissueCellsEbvTransformedLymphocytes,DiacoTissueLiver, DiacoTissueStomach, ListaGeni, ListaTabelle
+from Gtex.serializers import GeneMedianTpmSerializer,SampleAttributesDsSerializer,SubjectPhenotypesDdSerializer, DiacoTissueAdiposeSubcutaneousSerializer, DiacoTissueAdiposeVisceralOmSerializer, DiacoTissueAdrenalGlandSerializer, DiacoTissueArteryAortaSerializer, DiacoTissueArteryCoronarySerializer, DiacoTissueArteryTibialSerializer, DiacoTissueBladderSerializer, DiacoTissueBrainAmygdalaSerializer, DiacoTissueBrainAnteriorCcBa24Serializer, DiacoTissueBrainCaudateBgSerializer, DiacoTissueBrainCerebellarHsSerializer, DiacoTissueBrainCerebellumSerializer, DiacoTissueBrainCortexSerializer, DiacoTissueBrainFrontalCortexBa9Serializer, DiacoTissueBrainHippocampusSerializer, DiacoTissueBrainHypothalamusSerializer, DiacoTissueBrainSpinalCordCervicalC1Serializer, DiacoTissueBrainSubstantiaNigraSerializer , DiacoTissueBrainNucleusAccumbensBgSerializer, DiacoTissueBrainPutamenBasalGangliaSerializer, DiacoTissueBreastMammarySerializer, DiacoTissueCellsCulturedFibroblastsSerializer, DiacoTissueCellsEbvTransformedLymphocytesSerializer, DiacoTissueLiverSerializer, DiacoTissueStomachSerializer,ListaGeniSerializer, ListaTabelleSerializer
 
 # Tabelle generiche 
 @csrf_exempt
@@ -31,7 +31,7 @@ def geneMedianTpmApi(request,id=0):
     elif request.method=='DELETE':
         geneMedianTpm=GeneMedianTpm.objects.get(geneMedianTpmId=id)
         geneMedianTpm.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+        return JsonResponse ("Elimiato con successo!",safe=False)
 
 @csrf_exempt
 def subjectPhenotypesDdApi(request,id=0):
@@ -57,7 +57,7 @@ def subjectPhenotypesDdApi(request,id=0):
     elif request.method=='DELETE':
         subjectPhenotypesDd=SubjectPhenotypesDd.objects.get(subjectPhenotypesDdId=id)
         subjectPhenotypesDd.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+        return JsonResponse ("Elimiato con successo!",safe=False)
 
 @csrf_exempt
 def sampleAttributesDsApi(request,id=0):
@@ -83,7 +83,7 @@ def sampleAttributesDsApi(request,id=0):
     elif request.method=='DELETE':
         sampleAttributesDs=SampleAttributesDs.objects.get(sampleAttributesDsId=id)
         sampleAttributesDs.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+        return JsonResponse ("Elimiato con successo!",safe=False)
 
 # Tabelle per singoli tessuti
 @csrf_exempt
@@ -110,7 +110,7 @@ def diacoTissueAdiposeSubcutaneousApi(request,id=0):
     elif request.method=='DELETE':
         diacoTissueAdiposeSubcutaneous=DiacoTissueAdiposeSubcutaneous.objects.get(diacoTissueAdiposeSubcutaneousId=id)
         diacoTissueAdiposeSubcutaneous.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+        return JsonResponse ("Elimiato con successo!",safe=False)
 
 @csrf_exempt
 def diacoTissueAdiposeVisceralOmApi(request,id=0):
@@ -136,7 +136,7 @@ def diacoTissueAdiposeVisceralOmApi(request,id=0):
     elif request.method=='DELETE':
         diacoTissueAdiposeVisceralOm=DiacoTissueAdiposeVisceralOm.objects.get(diacoTissueAdiposeVisceralOmId=id)
         diacoTissueAdiposeVisceralOm.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+        return JsonResponse ("Elimiato con successo!",safe=False)
 
 @csrf_exempt
 def diacoTissueAdrenalGlandApi(request,id=0):
@@ -162,7 +162,7 @@ def diacoTissueAdrenalGlandApi(request,id=0):
     elif request.method=='DELETE':
         diacoTissueAdrenalGland=DiacoTissueAdiposeVisceralOm.objects.get(diacoTissueAdrenalGlandId=id)
         diacoTissueAdrenalGland.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+        return JsonResponse ("Elimiato con successo!",safe=False)
 
 @csrf_exempt
 def diacoTissueArteryAortaApi(request,id=0):
@@ -188,7 +188,7 @@ def diacoTissueArteryAortaApi(request,id=0):
     elif request.method=='DELETE':
         diacoTissueArteryAorta=DiacoTissueArteryAorta.objects.get(diacoTissueAdiposeVisceralOmId=id)
         diacoTissueArteryAorta.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+        return JsonResponse ("Elimiato con successo!",safe=False)
 
 @csrf_exempt
 def diacoTissueArteryCoronaryApi(request,id=0):
@@ -214,7 +214,33 @@ def diacoTissueArteryCoronaryApi(request,id=0):
     elif request.method=='DELETE':
         diacoTissueArteryCoronary=DiacoTissueArteryCoronary.objects.get(diacoTissueAdiposeVisceralOmId=id)
         diacoTissueArteryCoronary.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+        return JsonResponse ("Elimiato con successo!",safe=False)
+
+@csrf_exempt
+def diacoTissueArteryTibialApi(request,id=0):
+    if request.method=='GET':
+        diacoTissueArteryTibials=DiacoTissueArteryTibial.objects.all()
+        diacoTissueArteryTibial_serializer=DiacoTissueArteryTibialSerializer(diacoTissueArteryTibials,many=True)
+        return JsonResponse(diacoTissueArteryTibial_serializer.data,safe=False)
+    elif request.method=='POST':
+        diacoTissueArteryTibial_data=JSONParser().parse(request)
+        diacoTissueArteryTibial_serializer=DiacoTissueArteryTibialSerializer(data=diacoTissueArteryTibial_data)
+        if (diacoTissueArteryTibial_serializer.is_valid()):
+            diacoTissueArteryTibial_serializer.save()
+            return JsonResponse ("Aggiunto con successo!", safe=False)
+        return JsonResponse ("Errore nell'inserimento",safe=False)
+    elif request.method=='PUT':
+        diacoTissueArteryTibial_data=JSONParser().parse(request)
+        diacoTissueArteryTibial=DiacoTissueArteryTibial.objects.get(diacoTissueArteryTibialId=diacoTissueArteryTibial_data['subjid'])
+        diacoTissueArteryTibial_serializer=DiacoTissueArteryTibialSerializer(diacoTissueArteryTibial,data=diacoTissueArteryTibial_data)
+        if (diacoTissueArteryTibial_serializer.is_valid()):
+            diacoTissueArteryTibial_serializer.save()
+            return JsonResponse ("Aggiornato con successo!", safe=False)
+        return JsonResponse ("Errore nell'argionamento",safe=False)
+    elif request.method=='DELETE':
+        diacoTissueArteryTibial=DiacoTissueArteryTibial.objects.get(diacoTissueArteryTibialId=id)
+        diacoTissueArteryTibial.delete()
+        return JsonResponse ("Elimiato con successo!",safe=False)
 
 @csrf_exempt
 def diacoTissueBladderApi(request,id=0):
@@ -240,7 +266,7 @@ def diacoTissueBladderApi(request,id=0):
     elif request.method=='DELETE':
         diacoTissueBladder=DiacoTissueBladder.objects.get(diacoTissueBladderId=id)
         diacoTissueBladder.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+        return JsonResponse ("Elimiato con successo!",safe=False)
 
 @csrf_exempt
 def diacoTissueBrainAmygdalaApi(request,id=0):
@@ -266,7 +292,7 @@ def diacoTissueBrainAmygdalaApi(request,id=0):
     elif request.method=='DELETE':
         diacoTissueBrainAmygdala=DiacoTissueBrainAmygdala.objects.get(diacoTissueBrainAmygdalaId=id)
         diacoTissueBrainAmygdala.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+        return JsonResponse ("Elimiato con successo!",safe=False)
 
 @csrf_exempt
 def diacoTissueBrainAnteriorCcBa24Api(request,id=0):
@@ -292,7 +318,7 @@ def diacoTissueBrainAnteriorCcBa24Api(request,id=0):
     elif request.method=='DELETE':
         diacoTissueBrainAnteriorCcBa24=DiacoTissueBrainAnteriorCcBa24.objects.get(diacoTissueBrainAnteriorCcBa24Id=id)
         diacoTissueBrainAnteriorCcBa24.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+        return JsonResponse ("Elimiato con successo!",safe=False)
 
 @csrf_exempt
 def diacoTissueBrainCaudateBgApi(request,id=0):
@@ -318,7 +344,7 @@ def diacoTissueBrainCaudateBgApi(request,id=0):
     elif request.method=='DELETE':
         diacoTissueBrainCaudateBg=DiacoTissueBrainCaudateBg.objects.get(diacoTissueBrainCaudateBgId=id)
         diacoTissueBrainCaudateBg.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+        return JsonResponse ("Elimiato con successo!",safe=False)
 
 @csrf_exempt
 def diacoTissueBrainCerebellarHsApi(request,id=0):
@@ -344,7 +370,7 @@ def diacoTissueBrainCerebellarHsApi(request,id=0):
     elif request.method=='DELETE':
         diacoTissueBrainCerebellarHs=DiacoTissueBrainCerebellarHs.objects.get(diacoTissueBrainCerebellarHsId=id)
         diacoTissueBrainCerebellarHs.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+        return JsonResponse ("Elimiato con successo!",safe=False)
 
 @csrf_exempt
 def diacoTissueBrainCerebellumApi(request,id=0):
@@ -370,7 +396,7 @@ def diacoTissueBrainCerebellumApi(request,id=0):
     elif request.method=='DELETE':
         diacoTissueBrainCerebellum=DiacoTissueBrainCerebellum.objects.get(diacoTissueBrainCerebellumId=id)
         diacoTissueBrainCerebellum.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+        return JsonResponse ("Elimiato con successo!",safe=False)
 
 @csrf_exempt
 def diacoTissueBrainCortexApi(request,id=0):
@@ -396,7 +422,7 @@ def diacoTissueBrainCortexApi(request,id=0):
     elif request.method=='DELETE':
         diacoTissueBrainCortex=DiacoTissueBrainCortex.objects.get(DiacoTissueBrainCortexId=id)
         diacoTissueBrainCortex.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+        return JsonResponse ("Elimiato con successo!",safe=False)
 
 @csrf_exempt
 def diacoTissueBrainFrontalCortexBa9Api(request,id=0):
@@ -422,7 +448,7 @@ def diacoTissueBrainFrontalCortexBa9Api(request,id=0):
     elif request.method=='DELETE':
         diacoTissueBrainFrontalCortexBa9=DiacoTissueBrainFrontalCortexBa9.objects.get(diacoTissueBrainFrontalCortexBa9Id=id)
         diacoTissueBrainFrontalCortexBa9.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+        return JsonResponse ("Elimiato con successo!",safe=False)
 
 @csrf_exempt
 def diacoTissueBrainHippocampusApi(request,id=0):
@@ -448,7 +474,7 @@ def diacoTissueBrainHippocampusApi(request,id=0):
     elif request.method=='DELETE':
         diacoTissueBrainHippocampus=DiacoTissueBrainHippocampus.objects.get(diacoTissueBrainHippocampusId=id)
         diacoTissueBrainHippocampus.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+        return JsonResponse ("Elimiato con successo!",safe=False)
 
 @csrf_exempt
 def diacoTissueBrainHypothalamusApi(request,id=0):
@@ -474,7 +500,7 @@ def diacoTissueBrainHypothalamusApi(request,id=0):
     elif request.method=='DELETE':
         diacoTissueBrainHypothalamus=DiacoTissueBrainHypothalamus.objects.get(diacoTissueBrainHypothalamusId=id)
         diacoTissueBrainHypothalamus.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+        return JsonResponse ("Elimiato con successo!",safe=False)
 
 @csrf_exempt
 def diacoTissueBrainSpinalCordCervicalC1Api(request,id=0):
@@ -500,7 +526,7 @@ def diacoTissueBrainSpinalCordCervicalC1Api(request,id=0):
     elif request.method=='DELETE':
         diacoTissueBrainSpinalCordCervicalC1=DiacoTissueBrainSpinalCordCervicalC1.objects.get(diacoTissueBrainSpinalCordCervicalC1Id=id)
         diacoTissueBrainSpinalCordCervicalC1.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+        return JsonResponse ("Elimiato con successo!",safe=False)
 
 @csrf_exempt
 def diacoTissueBrainSubstantiaNigraApi(request,id=0):
@@ -526,7 +552,7 @@ def diacoTissueBrainSubstantiaNigraApi(request,id=0):
     elif request.method=='DELETE':
         diacoTissueBrainSubstantiaNigra=DiacoTissueBrainSubstantiaNigra.objects.get(diacoTissueBrainSubstantiaNigraId=id)
         diacoTissueBrainSubstantiaNigra.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+        return JsonResponse ("Elimiato con successo!",safe=False)
 
 @csrf_exempt
 def diacoTissueBrainPutamenBasalGangliaApi(request,id=0):
@@ -552,7 +578,7 @@ def diacoTissueBrainPutamenBasalGangliaApi(request,id=0):
     elif request.method=='DELETE':
         diacoTissueBrainPutamenBasalGanglia=DiacoTissueBrainPutamenBasalGanglia.objects.get(diacoTissueBrainPutamenBasalGangliaId=id)
         diacoTissueBrainPutamenBasalGanglia.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+        return JsonResponse ("Elimiato con successo!",safe=False)
 
 @csrf_exempt
 def diacoTissueBrainNucleusAccumbensBgApi(request,id=0):
@@ -578,7 +604,85 @@ def diacoTissueBrainNucleusAccumbensBgApi(request,id=0):
     elif request.method=='DELETE':
         diacoTissueBrainNucleusAccumbensBg=DiacoTissueBrainNucleusAccumbensBg.objects.get(diacoTissueBrainNucleusAccumbensBgId=id)
         diacoTissueBrainNucleusAccumbensBg.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)         
+        return JsonResponse ("Elimiato con successo!",safe=False)         
+
+@csrf_exempt
+def diacoTissueBreastMammaryApi(request,id=0):
+    if request.method=='GET':
+        diacoTissueBreastMammarys=DiacoTissueBreastMammary.objects.all()
+        diacoTissueBreastMammary_serializer=DiacoTissueBreastMammarySerializer(diacoTissueBreastMammarys,many=True)
+        return JsonResponse(diacoTissueBreastMammary_serializer.data,safe=False)
+    elif request.method=='POST':
+        diacoTissueBreastMammary_data=JSONParser().parse(request)
+        diacoTissueBreastMammary_serializer=DiacoTissueBreastMammarySerializer(data=diacoTissueBreastMammary_data)
+        if (diacoTissueBreastMammary_serializer.is_valid()):
+            diacoTissueBreastMammary_serializer.save()
+            return JsonResponse ("Aggiunto con successo!", safe=False)
+        return JsonResponse ("Errore nell'inserimento",safe=False)
+    elif request.method=='PUT':
+        diacoTissueBreastMammary_data=JSONParser().parse(request)
+        diacoTissueBreastMammary=DiacoTissueBreastMammary.objects.get(diacoTissueBreastMammaryId=diacoTissueBreastMammary_data['subjid'])
+        diacoTissueBreastMammary_serializer=DiacoTissueBreastMammarySerializer(diacoTissueBreastMammary,data=diacoTissueBreastMammary_data)
+        if (diacoTissueBreastMammary_serializer.is_valid()):
+            diacoTissueBreastMammary_serializer.save()
+            return JsonResponse ("Aggiornato con successo!", safe=False)
+        return JsonResponse ("Errore nell'argionamento",safe=False)
+    elif request.method=='DELETE':
+        diacoTissueBreastMammary=DiacoTissueBreastMammary.objects.get(diacoTissueBreastMammaryId=id)
+        diacoTissueBreastMammary.delete()
+        return JsonResponse ("Elimiato con successo!",safe=False)
+
+@csrf_exempt
+def diacoTissueCellsCulturedFibroblastsApi(request,id=0):
+    if request.method=='GET':
+        diacoTissueCellsCulturedFibroblastss=DiacoTissueCellsCulturedFibroblasts.objects.all()
+        diacoTissueCellsCulturedFibroblasts_serializer=DiacoTissueCellsCulturedFibroblastsSerializer(diacoTissueCellsCulturedFibroblastss,many=True)
+        return JsonResponse(diacoTissueCellsCulturedFibroblasts_serializer.data,safe=False)
+    elif request.method=='POST':
+        diacoTissueCellsCulturedFibroblasts_data=JSONParser().parse(request)
+        diacoTissueCellsCulturedFibroblasts_serializer=DiacoTissueCellsCulturedFibroblastsSerializer(data=diacoTissueCellsCulturedFibroblasts_data)
+        if (diacoTissueCellsCulturedFibroblasts_serializer.is_valid()):
+            diacoTissueCellsCulturedFibroblasts_serializer.save()
+            return JsonResponse ("Aggiunto con successo!", safe=False)
+        return JsonResponse ("Errore nell'inserimento",safe=False)
+    elif request.method=='PUT':
+        diacoTissueCellsCulturedFibroblasts_data=JSONParser().parse(request)
+        diacoTissueCellsCulturedFibroblasts=DiacoTissueCellsCulturedFibroblasts.objects.get(diacoTissueCellsCulturedFibroblastsId=diacoTissueCellsCulturedFibroblasts_data['subjid'])
+        diacoTissueCellsCulturedFibroblasts_serializer=DiacoTissueCellsCulturedFibroblastsSerializer(diacoTissueCellsCulturedFibroblasts,data=diacoTissueCellsCulturedFibroblasts_data)
+        if (diacoTissueCellsCulturedFibroblasts_serializer.is_valid()):
+            diacoTissueCellsCulturedFibroblasts_serializer.save()
+            return JsonResponse ("Aggiornato con successo!", safe=False)
+        return JsonResponse ("Errore nell'argionamento",safe=False)
+    elif request.method=='DELETE':
+        diacoTissueCellsCulturedFibroblasts=DiacoTissueCellsCulturedFibroblasts.objects.get(diacoTissueCellsCulturedFibroblastsId=id)
+        diacoTissueCellsCulturedFibroblasts.delete()
+        return JsonResponse ("Elimiato con successo!",safe=False)
+
+@csrf_exempt
+def diacoTissueCellsEbvTransformedLymphocytesApi(request,id=0):
+    if request.method=='GET':
+        diacoTissueCellsEbvTransformedLymphocytess=DiacoTissueCellsEbvTransformedLymphocytes.objects.all()
+        diacoTissueCellsEbvTransformedLymphocytes_serializer=DiacoTissueCellsEbvTransformedLymphocytesSerializer(diacoTissueCellsEbvTransformedLymphocytess,many=True)
+        return JsonResponse(diacoTissueCellsEbvTransformedLymphocytes_serializer.data,safe=False)
+    elif request.method=='POST':
+        diacoTissueCellsEbvTransformedLymphocytes_data=JSONParser().parse(request)
+        diacoTissueCellsEbvTransformedLymphocytes_serializer=DiacoTissueCellsEbvTransformedLymphocytesSerializer(data=diacoTissueCellsEbvTransformedLymphocytes_data)
+        if (diacoTissueCellsEbvTransformedLymphocytes_serializer.is_valid()):
+            diacoTissueCellsEbvTransformedLymphocytes_serializer.save()
+            return JsonResponse ("Aggiunto con successo!", safe=False)
+        return JsonResponse ("Errore nell'inserimento",safe=False)
+    elif request.method=='PUT':
+        diacoTissueCellsEbvTransformedLymphocytes_data=JSONParser().parse(request)
+        diacoTissueCellsEbvTransformedLymphocytes=DiacoTissueCellsEbvTransformedLymphocytes.objects.get(diacoTissueCellsEbvTransformedLymphocytesId=diacoTissueCellsEbvTransformedLymphocytes_data['subjid'])
+        diacoTissueCellsEbvTransformedLymphocytes_serializer=DiacoTissueCellsEbvTransformedLymphocytesSerializer(diacoTissueCellsEbvTransformedLymphocytes,data=diacoTissueCellsEbvTransformedLymphocytes_data)
+        if (diacoTissueCellsEbvTransformedLymphocytes_serializer.is_valid()):
+            diacoTissueCellsEbvTransformedLymphocytes_serializer.save()
+            return JsonResponse ("Aggiornato con successo!", safe=False)
+        return JsonResponse ("Errore nell'argionamento",safe=False)
+    elif request.method=='DELETE':
+        diacoTissueCellsEbvTransformedLymphocytes=DiacoTissueCellsEbvTransformedLymphocytes.objects.get(diacoTissueCellsEbvTransformedLymphocytesId=id)
+        diacoTissueCellsEbvTransformedLymphocytes.delete()
+        return JsonResponse ("Elimiato con successo!",safe=False)    
 
 @csrf_exempt
 def diacoTissueLiverApi(request,id=0):
@@ -604,7 +708,7 @@ def diacoTissueLiverApi(request,id=0):
     elif request.method=='DELETE':
         diacoTissueLiver=DiacoTissueLiver.objects.get(diacoTissueLiverId=id)
         diacoTissueLiver.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+        return JsonResponse ("Elimiato con successo!",safe=False)
 
 @csrf_exempt
 def diacoTissueStomachApi(request,id=0):
@@ -630,7 +734,7 @@ def diacoTissueStomachApi(request,id=0):
     elif request.method=='DELETE':
         diacoTissueStomach=DiacoTissueStomach.objects.get(diacoTissueStomachId=id)
         diacoTissueStomach.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+        return JsonResponse ("Elimiato con successo!",safe=False)
 
 # Tabelle per uso lista
 @csrf_exempt
@@ -657,7 +761,7 @@ def listaGeniApi(request,id=0):
     elif request.method=='DELETE':
         listaGeni=ListaGeni.objects.get(listaGeniId=id)
         listaGeni.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+        return JsonResponse ("Elimiato con successo!",safe=False)
 
 @csrf_exempt
 def listaTabelleApi(request,id=0):
@@ -683,5 +787,5 @@ def listaTabelleApi(request,id=0):
     elif request.method=='DELETE':
         listaTabelle=ListaTabelle.objects.get(listaTabelleId=id)
         listaTabelle.delete()
-        return JsonResponse ("Elimiato con suvvesso!",safe=False)
+        return JsonResponse ("Elimiato con successo!",safe=False)
 
