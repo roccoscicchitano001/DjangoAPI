@@ -3,8 +3,8 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
 
-from Gtex.models import GeneMedianTpm,SampleAttributesDs,SubjectPhenotypesDd, DiacoTissueAdiposeSubcutaneous, DiacoTissueAdiposeVisceralOm, DiacoTissueAdrenalGland, DiacoTissueArteryAorta, DiacoTissueArteryCoronary, DiacoTissueArteryTibial,DiacoTissueBladder, DiacoTissueBrainAmygdala, DiacoTissueBrainAnteriorCcBa24, DiacoTissueBrainCaudateBg, DiacoTissueBrainCerebellarHs, DiacoTissueBrainCerebellum, DiacoTissueBrainCortex, DiacoTissueBrainFrontalCortexBa9, DiacoTissueBrainHippocampus, DiacoTissueBrainHypothalamus, DiacoTissueBrainNucleusAccumbensBg, DiacoTissueBrainSpinalCordCervicalC1, DiacoTissueBrainPutamenBasalGanglia, DiacoTissueBrainSubstantiaNigra, DiacoTissueBreastMammary, DiacoTissueCellsCulturedFibroblasts, DiacoTissueCellsEbvTransformedLymphocytes, DiacoTissueEsophagusMuscularis, DiacoTissueEsophagusMucosa, DiacoTissueCervixEctocervix, DiacoTissueCervixEndocervix, DiacoTissueColonSigmoid, DiacoTissueColonTransverse, DiacoTissueEsophagusGastroesophagealJunction, DiacoTissueFallopianTube, DiacoTissueHeartAtrialAppendage, DiacoTissueHeartLeftVentricle, DiacoTissueKidneyCortex, DiacoTissueKidneyMedulla, DiacoTissueLiver, DiacoTissueLung, DiacoTissueSpleen, DiacoTissueMinorSalivaryGland, DiacoTissueMuscleSkeletal, DiacoTissueNerveTibial, DiacoTissueOvary, DiacoTissuePancreas, DiacoTissuePituitary, DiacoTissueProstate, DiacoTissueSkinNotSunExposedSuprapubic, DiacoTissueSkinSunExposedLowerLeg, DiacoTissueSmallIntestineTerminalIleum, DiacoTissueStomach, ListaGeni, ListaTabelle
-from Gtex.serializers import GeneMedianTpmSerializer,SampleAttributesDsSerializer,SubjectPhenotypesDdSerializer, DiacoTissueAdiposeSubcutaneousSerializer, DiacoTissueAdiposeVisceralOmSerializer, DiacoTissueAdrenalGlandSerializer, DiacoTissueArteryAortaSerializer, DiacoTissueArteryCoronarySerializer, DiacoTissueArteryTibialSerializer, DiacoTissueBladderSerializer, DiacoTissueBrainAmygdalaSerializer, DiacoTissueBrainAnteriorCcBa24Serializer, DiacoTissueBrainCaudateBgSerializer, DiacoTissueBrainCerebellarHsSerializer, DiacoTissueBrainCerebellumSerializer, DiacoTissueBrainCortexSerializer, DiacoTissueBrainFrontalCortexBa9Serializer, DiacoTissueBrainHippocampusSerializer, DiacoTissueBrainHypothalamusSerializer, DiacoTissueBrainSpinalCordCervicalC1Serializer, DiacoTissueBrainSubstantiaNigraSerializer , DiacoTissueBrainNucleusAccumbensBgSerializer, DiacoTissueBrainPutamenBasalGangliaSerializer, DiacoTissueBreastMammarySerializer, DiacoTissueCellsCulturedFibroblastsSerializer, DiacoTissueCellsEbvTransformedLymphocytesSerializer, DiacoTissueColonSigmoidSerializer, DiacoTissueColonTransverseSerializer, DiacoTissueEsophagusMucosaSerializer, DiacoTissueCervixEctocervixSerializer, DiacoTissueCervixEndocervixSerializer, DiacoTissueEsophagusMuscularisSerializer, DiacoTissueEsophagusGastroesophagealJunctionSerializer, DiacoTissueFallopianTubeSerializer, DiacoTissueHeartAtrialAppendageSerializer, DiacoTissueHeartLeftVentricleSerializer, DiacoTissueKidneyCortexSerializer, DiacoTissueKidneyMedullaSerializer, DiacoTissueLiverSerializer, DiacoTissueLungSerializer, DiacoTissueOvarySerializer, DiacoTissueSpleenSerializer, DiacoTissuePancreasSerializer, DiacoTissueProstateSerializer, DiacoTissuePituitarySerializer, DiacoTissueNerveTibialSerializer, DiacoTissueMuscleSkeletalSerializer, DiacoTissueMinorSalivaryGlandSerializer, DiacoTissueSkinSunExposedLowerLegSerializer, DiacoTissueSkinNotSunExposedSuprapubicSerializer, DiacoTissueSmallIntestineTerminalIleumSerializer, DiacoTissueStomachSerializer,ListaGeniSerializer, ListaTabelleSerializer
+from Gtex.models import GeneMedianTpm,SampleAttributesDs,SubjectPhenotypesDd, DiacoTissueAdiposeSubcutaneous, DiacoTissueAdiposeVisceralOm, DiacoTissueAdrenalGland, DiacoTissueArteryAorta, DiacoTissueArteryCoronary, DiacoTissueArteryTibial,DiacoTissueBladder, DiacoTissueBrainAmygdala, DiacoTissueBrainAnteriorCcBa24, DiacoTissueBrainCaudateBg, DiacoTissueBrainCerebellarHs, DiacoTissueBrainCerebellum, DiacoTissueBrainCortex, DiacoTissueBrainFrontalCortexBa9, DiacoTissueBrainHippocampus, DiacoTissueBrainHypothalamus, DiacoTissueBrainNucleusAccumbensBg, DiacoTissueBrainSpinalCordCervicalC1, DiacoTissueBrainPutamenBasalGanglia, DiacoTissueBrainSubstantiaNigra, DiacoTissueBreastMammary, DiacoTissueCellsCulturedFibroblasts, DiacoTissueCellsEbvTransformedLymphocytes, DiacoTissueEsophagusMuscularis, DiacoTissueEsophagusMucosa, DiacoTissueCervixEctocervix, DiacoTissueCervixEndocervix, DiacoTissueColonSigmoid, DiacoTissueColonTransverse, DiacoTissueEsophagusGastroesophagealJunction, DiacoTissueFallopianTube, DiacoTissueHeartAtrialAppendage, DiacoTissueHeartLeftVentricle, DiacoTissueKidneyCortex, DiacoTissueKidneyMedulla, DiacoTissueLiver, DiacoTissueLung, DiacoTissueSpleen, DiacoTissueMinorSalivaryGland, DiacoTissueMuscleSkeletal, DiacoTissueNerveTibial, DiacoTissueOvary, DiacoTissuePancreas, DiacoTissuePituitary, DiacoTissueProstate, DiacoTissueSkinNotSunExposedSuprapubic, DiacoTissueSkinSunExposedLowerLeg, DiacoTissueSmallIntestineTerminalIleum, DiacoTissueStomach, DiacoTissueWholeBlood, DiacoTissueVagina, DiacoTissueTestis, DiacoTissueThyroid, DiacoTissueUterus, ListaGeni, ListaTabelle
+from Gtex.serializers import GeneMedianTpmSerializer,SampleAttributesDsSerializer,SubjectPhenotypesDdSerializer, DiacoTissueAdiposeSubcutaneousSerializer, DiacoTissueAdiposeVisceralOmSerializer, DiacoTissueAdrenalGlandSerializer, DiacoTissueArteryAortaSerializer, DiacoTissueArteryCoronarySerializer, DiacoTissueArteryTibialSerializer, DiacoTissueBladderSerializer, DiacoTissueBrainAmygdalaSerializer, DiacoTissueBrainAnteriorCcBa24Serializer, DiacoTissueBrainCaudateBgSerializer, DiacoTissueBrainCerebellarHsSerializer, DiacoTissueBrainCerebellumSerializer, DiacoTissueBrainCortexSerializer, DiacoTissueBrainFrontalCortexBa9Serializer, DiacoTissueBrainHippocampusSerializer, DiacoTissueBrainHypothalamusSerializer, DiacoTissueBrainSpinalCordCervicalC1Serializer, DiacoTissueBrainSubstantiaNigraSerializer , DiacoTissueBrainNucleusAccumbensBgSerializer, DiacoTissueBrainPutamenBasalGangliaSerializer, DiacoTissueBreastMammarySerializer, DiacoTissueCellsCulturedFibroblastsSerializer, DiacoTissueCellsEbvTransformedLymphocytesSerializer, DiacoTissueColonSigmoidSerializer, DiacoTissueColonTransverseSerializer, DiacoTissueEsophagusMucosaSerializer, DiacoTissueCervixEctocervixSerializer, DiacoTissueCervixEndocervixSerializer, DiacoTissueEsophagusMuscularisSerializer, DiacoTissueEsophagusGastroesophagealJunctionSerializer, DiacoTissueFallopianTubeSerializer, DiacoTissueHeartAtrialAppendageSerializer, DiacoTissueHeartLeftVentricleSerializer, DiacoTissueKidneyCortexSerializer, DiacoTissueKidneyMedullaSerializer, DiacoTissueLiverSerializer, DiacoTissueLungSerializer, DiacoTissueOvarySerializer, DiacoTissueSpleenSerializer, DiacoTissuePancreasSerializer, DiacoTissueProstateSerializer, DiacoTissuePituitarySerializer, DiacoTissueNerveTibialSerializer, DiacoTissueMuscleSkeletalSerializer, DiacoTissueMinorSalivaryGlandSerializer, DiacoTissueSkinSunExposedLowerLegSerializer, DiacoTissueSkinNotSunExposedSuprapubicSerializer, DiacoTissueSmallIntestineTerminalIleumSerializer, DiacoTissueStomachSerializer, DiacoTissueTestisSerializer, DiacoTissueUterusSerializer, DiacoTissueVaginaSerializer, DiacoTissueThyroidSerializer, DiacoTissueWholeBloodSerializer, ListaGeniSerializer, ListaTabelleSerializer
 
 # Tabelle generiche 
 @csrf_exempt
@@ -1356,6 +1356,162 @@ def diacoTissueStomachApi(request,id=0):
     elif request.method=='DELETE':
         diacoTissueStomach=DiacoTissueStomach.objects.get(diacoTissueStomachId=id)
         diacoTissueStomach.delete()
+        return JsonResponse ("Elimiato con successo!",safe=False)
+
+@csrf_exempt
+def diacoTissueStomachApi(request,id=0):
+    if request.method=='GET':
+        diacoTissueStomachs=DiacoTissueStomach.objects.all()
+        diacoTissueStomach_serializer=DiacoTissueStomachSerializer(diacoTissueStomachs,many=True)
+        return JsonResponse(diacoTissueStomach_serializer.data,safe=False)
+    elif request.method=='POST':
+        diacoTissueStomach_data=JSONParser().parse(request)
+        diacoTissueStomach_serializer=DiacoTissueStomachSerializer(data=diacoTissueStomach_data)
+        if (diacoTissueStomach_serializer.is_valid()):
+            diacoTissueStomach_serializer.save()
+            return JsonResponse ("Aggiunto con successo!", safe=False)
+        return JsonResponse ("Errore nell'inserimento",safe=False)
+    elif request.method=='PUT':
+        diacoTissueStomach_data=JSONParser().parse(request)
+        diacoTissueStomach=DiacoTissueStomach.objects.get(diacoTissueStomachId=diacoTissueStomach_data['subjid'])
+        diacoTissueStomach_serializer=DiacoTissueStomachSerializer(diacoTissueStomach,data=diacoTissueStomach_data)
+        if (diacoTissueStomach_serializer.is_valid()):
+            diacoTissueStomach_serializer.save()
+            return JsonResponse ("Aggiornato con successo!", safe=False)
+        return JsonResponse ("Errore nell'argionamento",safe=False)
+    elif request.method=='DELETE':
+        diacoTissueStomach=DiacoTissueStomach.objects.get(diacoTissueStomachId=id)
+        diacoTissueStomach.delete()
+        return JsonResponse ("Elimiato con successo!",safe=False)
+
+@csrf_exempt
+def diacoTissueTestisApi(request,id=0):
+    if request.method=='GET':
+        diacoTissueTestiss=DiacoTissueTestis.objects.all()
+        diacoTissueTestis_serializer=DiacoTissueTestisSerializer(diacoTissueTestiss,many=True)
+        return JsonResponse(diacoTissueTestis_serializer.data,safe=False)
+    elif request.method=='POST':
+        diacoTissueTestis_data=JSONParser().parse(request)
+        diacoTissueTestis_serializer=DiacoTissueTestisSerializer(data=diacoTissueTestis_data)
+        if (diacoTissueTestis_serializer.is_valid()):
+            diacoTissueTestis_serializer.save()
+            return JsonResponse ("Aggiunto con successo!", safe=False)
+        return JsonResponse ("Errore nell'inserimento",safe=False)
+    elif request.method=='PUT':
+        diacoTissueTestis_data=JSONParser().parse(request)
+        diacoTissueTestis=DiacoTissueTestis.objects.get(diacoTissueTestisId=diacoTissueTestis_data['subjid'])
+        diacoTissueTestis_serializer=DiacoTissueTestisSerializer(diacoTissueTestis,data=diacoTissueTestis_data)
+        if (diacoTissueTestis_serializer.is_valid()):
+            diacoTissueTestis_serializer.save()
+            return JsonResponse ("Aggiornato con successo!", safe=False)
+        return JsonResponse ("Errore nell'argionamento",safe=False)
+    elif request.method=='DELETE':
+        diacoTissueTestis=DiacoTissueTestis.objects.get(diacoTissueTestisId=id)
+        diacoTissueTestis.delete()
+        return JsonResponse ("Elimiato con successo!",safe=False)
+
+@csrf_exempt
+def diacoTissueThyroidApi(request,id=0):
+    if request.method=='GET':
+        diacoTissueThyroids=DiacoTissueThyroid.objects.all()
+        diacoTissueThyroid_serializer=DiacoTissueThyroidSerializer(diacoTissueThyroids,many=True)
+        return JsonResponse(diacoTissueThyroid_serializer.data,safe=False)
+    elif request.method=='POST':
+        diacoTissueThyroid_data=JSONParser().parse(request)
+        diacoTissueThyroid_serializer=DiacoTissueThyroidSerializer(data=diacoTissueThyroid_data)
+        if (diacoTissueThyroid_serializer.is_valid()):
+            diacoTissueThyroid_serializer.save()
+            return JsonResponse ("Aggiunto con successo!", safe=False)
+        return JsonResponse ("Errore nell'inserimento",safe=False)
+    elif request.method=='PUT':
+        diacoTissueThyroid_data=JSONParser().parse(request)
+        diacoTissueThyroid=DiacoTissueThyroid.objects.get(diacoTissueThyroidId=diacoTissueThyroid_data['subjid'])
+        diacoTissueThyroid_serializer=DiacoTissueThyroidSerializer(diacoTissueThyroid,data=diacoTissueThyroid_data)
+        if (diacoTissueThyroid_serializer.is_valid()):
+            diacoTissueThyroid_serializer.save()
+            return JsonResponse ("Aggiornato con successo!", safe=False)
+        return JsonResponse ("Errore nell'argionamento",safe=False)
+    elif request.method=='DELETE':
+        diacoTissueThyroid=DiacoTissueThyroid.objects.get(diacoTissueThyroidId=id)
+        diacoTissueThyroid.delete()
+        return JsonResponse ("Elimiato con successo!",safe=False)
+
+@csrf_exempt
+def diacoTissueUterusApi(request,id=0):
+    if request.method=='GET':
+        diacoTissueUteruss=DiacoTissueUterus.objects.all()
+        diacoTissueUterus_serializer=DiacoTissueUterusSerializer(diacoTissueUteruss,many=True)
+        return JsonResponse(diacoTissueUterus_serializer.data,safe=False)
+    elif request.method=='POST':
+        diacoTissueUterus_data=JSONParser().parse(request)
+        diacoTissueUterus_serializer=DiacoTissueUterusSerializer(data=diacoTissueUterus_data)
+        if (diacoTissueUterus_serializer.is_valid()):
+            diacoTissueUterus_serializer.save()
+            return JsonResponse ("Aggiunto con successo!", safe=False)
+        return JsonResponse ("Errore nell'inserimento",safe=False)
+    elif request.method=='PUT':
+        diacoTissueUterus_data=JSONParser().parse(request)
+        diacoTissueUterus=DiacoTissueUterus.objects.get(diacoTissueUterusId=diacoTissueUterus_data['subjid'])
+        diacoTissueUterus_serializer=DiacoTissueUterusSerializer(diacoTissueUterus,data=diacoTissueUterus_data)
+        if (diacoTissueUterus_serializer.is_valid()):
+            diacoTissueUterus_serializer.save()
+            return JsonResponse ("Aggiornato con successo!", safe=False)
+        return JsonResponse ("Errore nell'argionamento",safe=False)
+    elif request.method=='DELETE':
+        diacoTissueUterus=DiacoTissueUterus.objects.get(diacoTissueUterusId=id)
+        diacoTissueUterus.delete()
+        return JsonResponse ("Elimiato con successo!",safe=False)
+
+@csrf_exempt
+def diacoTissueVaginaApi(request,id=0):
+    if request.method=='GET':
+        diacoTissueVaginas=DiacoTissueVagina.objects.all()
+        diacoTissueVagina_serializer=DiacoTissueVaginaSerializer(diacoTissueVaginas,many=True)
+        return JsonResponse(diacoTissueVagina_serializer.data,safe=False)
+    elif request.method=='POST':
+        diacoTissueVagina_data=JSONParser().parse(request)
+        diacoTissueVagina_serializer=DiacoTissueVaginaSerializer(data=diacoTissueVagina_data)
+        if (diacoTissueVagina_serializer.is_valid()):
+            diacoTissueVagina_serializer.save()
+            return JsonResponse ("Aggiunto con successo!", safe=False)
+        return JsonResponse ("Errore nell'inserimento",safe=False)
+    elif request.method=='PUT':
+        diacoTissueVagina_data=JSONParser().parse(request)
+        diacoTissueVagina=DiacoTissueVagina.objects.get(diacoTissueVaginaId=diacoTissueVagina_data['subjid'])
+        diacoTissueVagina_serializer=DiacoTissueVaginaSerializer(diacoTissueVagina,data=diacoTissueVagina_data)
+        if (diacoTissueVagina_serializer.is_valid()):
+            diacoTissueVagina_serializer.save()
+            return JsonResponse ("Aggiornato con successo!", safe=False)
+        return JsonResponse ("Errore nell'argionamento",safe=False)
+    elif request.method=='DELETE':
+        diacoTissueVagina=DiacoTissueVagina.objects.get(diacoTissueVaginaId=id)
+        diacoTissueVagina.delete()
+        return JsonResponse ("Elimiato con successo!",safe=False)
+
+@csrf_exempt
+def diacoTissueWholeBloodApi(request,id=0):
+    if request.method=='GET':
+        diacoTissueWholeBloods=DiacoTissueWholeBlood.objects.all()
+        diacoTissueWholeBlood_serializer=DiacoTissueWholeBloodSerializer(diacoTissueWholeBloods,many=True)
+        return JsonResponse(diacoTissueWholeBlood_serializer.data,safe=False)
+    elif request.method=='POST':
+        diacoTissueWholeBlood_data=JSONParser().parse(request)
+        diacoTissueWholeBlood_serializer=DiacoTissueWholeBloodSerializer(data=diacoTissueWholeBlood_data)
+        if (diacoTissueWholeBlood_serializer.is_valid()):
+            diacoTissueWholeBlood_serializer.save()
+            return JsonResponse ("Aggiunto con successo!", safe=False)
+        return JsonResponse ("Errore nell'inserimento",safe=False)
+    elif request.method=='PUT':
+        diacoTissueWholeBlood_data=JSONParser().parse(request)
+        diacoTissueWholeBlood=DiacoTissueWholeBlood.objects.get(diacoTissueWholeBloodId=diacoTissueWholeBlood_data['subjid'])
+        diacoTissueWholeBlood_serializer=DiacoTissueWholeBloodSerializer(diacoTissueWholeBlood,data=diacoTissueWholeBlood_data)
+        if (diacoTissueWholeBlood_serializer.is_valid()):
+            diacoTissueWholeBlood_serializer.save()
+            return JsonResponse ("Aggiornato con successo!", safe=False)
+        return JsonResponse ("Errore nell'argionamento",safe=False)
+    elif request.method=='DELETE':
+        diacoTissueWholeBlood=DiacoTissueWholeBlood.objects.get(diacoTissueWholeBloodId=id)
+        diacoTissueWholeBlood.delete()
         return JsonResponse ("Elimiato con successo!",safe=False)
 
 # Tabelle per uso lista
