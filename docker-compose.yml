@@ -16,7 +16,7 @@ services:
       - ./db/gtex.sql:/docker-entrypoint-initdb.d/gtex.sql
       - ./db/init_scripts:/docker-entrypoint-initdb.d/
 
-  web:
+  backend:
     build: .
     command: python manage.py runserver 0.0.0.0:3000
     volumes:
@@ -25,3 +25,11 @@ services:
       - "3000:3000"
     depends_on:
       - database
+    
+  fronted:
+    build: ui/Gtex-ui
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - 4200:4200
