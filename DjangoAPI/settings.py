@@ -85,7 +85,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'gtex',
-        'HOST' : '192.168.1.221',
+        'HOST' : 'localhost',
         'PORT' : '3306',
         'USER' : 'utente',
         'PASSWORD' : 'password',
