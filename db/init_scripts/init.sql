@@ -1,1 +1,0 @@
-GRANT ALL PRIVILEGES ON gtex.* TO 'utente'@'%';
