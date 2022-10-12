@@ -15,3 +15,13 @@ services:
     volumes:
       - ./db/gtex.sql:/docker-entrypoint-initdb.d/gtex.sql
       - ./db/init_scripts:/docker-entrypoint-initdb.d/
+
+  web:
+    build: .
+    command: python manage.py runserver
+    volumes:
+      - .:/code
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
