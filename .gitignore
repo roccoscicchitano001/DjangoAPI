@@ -1,14 +1,3 @@
 ui/Gtex-ui/package-lock.json
-Gtex/__pycache__/views.cpython-310.pyc
-DjangoAPI/settings.py
-DjangoAPI/__pycache__/settings.cpython-310.pyc
-Gtex/__pycache__/models.cpython-310.pyc
-Gtex/__pycache__/serializers.cpython-310.pyc
-Gtex/__pycache__/urls.cpython-310.pyc
-*.pyc
-Gtex/__pycache__/views.cpython-310.pyc
-Gtex/__pycache__/urls.cpython-310.pyc
-Gtex/__pycache__/serializers.cpython-310.pyc
-Gtex/__pycache__/models.cpython-310.pyc
-DjangoAPI/settings.py
-DjangoAPI/__pycache__/settings.cpython-310.pyc
+DjangoAPI/__pycache__/*.pyc
+Gtex/__pycache__/*.pyc
