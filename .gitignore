@@ -1,3 +1,4 @@
 ui/Gtex-ui/package-lock.json
 DjangoAPI/__pycache__/*.pyc
 Gtex/__pycache__/*.pyc
+Gtex/migrations/__pycache__/
